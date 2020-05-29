@@ -1,0 +1,82 @@
+/* utilities / displaying.sass
+ * > Responsive displaying
+ */
+
+//-------------------
+  ::  extra small  ::
+//-------------------
+
+// Hide extra small only
+@include break-xs
+  .h-xs
+    display: none !important
+
+
+//-------------
+  ::  small  ::
+//-------------
+
+// Hide small only
+@include break-only-sm
+  .h-sm-o
+    display: none !important
+
+// Hide small and below
+@include break-below-sm
+  .h-sm-b
+    display: none !important
+
+// Hide small and above
+@include break-sm
+  .h-sm
+    display: none !important
+
+
+//--------------
+  ::  medium  ::
+//--------------
+
+// Hide medium only
+@include break-only-md
+  .h-md-o
+    display: none !important
+
+// Hide medium and below
+@include break-below-md
+  .h-md-b
+    display: none !important
+
+// Hide medium and above
+@include break-md
+  .h-md
+    display: none !important
+
+
+//-------------
+  ::  large  ::
+//-------------
+
+// Hide large only
+@include break-only-lg
+  .h-lg-o
+    display: none !important
+
+// Hide large and below
+@include break-below-lg
+  .h-lg-b
+    display: none !important
+
+// Hide large and above
+@include break-lg
+  .h-lg
+    display: none !important
+
+
+//-------------------
+  ::  extra large  ::
+//-------------------
+
+// Hide extra large and above
+@include break-xl
+  .h-xl
+    display: none !important

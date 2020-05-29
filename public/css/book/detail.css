@@ -1,0 +1,70 @@
+/* public/css/detail.css */
+
+/* 상세 폼 */
+#detail-form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 80vw;
+  margin: 40px auto;
+  padding: 20px;
+  box-shadow: 2px 2px 7px 1px var(--form-shadow-color);
+  border-radius: 8px;
+}
+
+/* 상세 폼 타이틀 */
+#detail-form h1 {
+  font-size: var(--font-large);
+  font-weight: 500;
+}
+
+/* 상세 폼 본문 */
+#detail-form #detail-view {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  margin: 20px 5vw;
+  font-size: var(--fonr-medium);
+}
+
+#detail-form #detail-view h2 {
+  font-weight: 600;
+}
+
+#detail-form #detail-view span {
+  margin-top: 5px;
+}
+
+#detail-form #detail-view #things {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  margin-top: 20px;
+}
+
+#detail-form #detail-view #things span {
+  margin: 0 20px 0 5px;
+}
+
+/* 상세 폼 버튼 */
+#detail-form #btns {
+  display: flex;
+  justify-content: center;
+}
+
+#detail-form #btns button {
+  width: 100px;
+  margin: 10px 10px;
+  padding: 10px 5px;
+  font-size: var(--fonr-medium);
+  outline: none;
+  border: 1px solid var(--font-main-color);
+  border-radius: 4px;
+  background-color: var(--bg-main-color);
+}
+
+#detail-form #btns button:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}
+

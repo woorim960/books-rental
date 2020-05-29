@@ -1,0 +1,99 @@
+/* components / input.sass
+ * > Style declaration for inputs and form elements
+ */
+
+//--------------
+  ::  Input  ::
+//--------------
+
+[type='color'], [type='date'], [type='datetime'], [type='datetime-local'], [type='email'], [type='file'], [type='month'], [type='number'], [type='password'], [type='search'], [type='tel'], [type='text'], [type='time'], [type='url'], [type='week'], textarea, select
+  min-width: 120px
+  max-width: 100%
+  height: 36px
+  padding: 0 16px
+  border: 1px solid rgba(#000, .2)
+  border-radius: 0
+  box-shadow: none
+  font-size: 14px
+  line-height: 36px
+  vertical-align: middle
+  -moz-appearance: none
+  -webkit-appearance: none
+  transition: transition(border-color)
+
+  // Focus and border
+  &:focus
+    border: 1px solid var(--color-primary)
+    box-shadow: none
+    outline: 0
+
+
+//-----------------------
+  ::  Specific Inputs  ::
+//-----------------------
+
+[type='color']
+  min-width: 50px
+  padding: 2px
+
+
+[type='date'], [type='datetime'], [type='datetime-local'], [type='month'], [type='number'], [type='time'], [type='week']
+  padding: 6px 6px 6px 16px
+
+
+[type='file']
+  width: auto
+  display: inline-block
+
+
+//----------------
+  ::  Textarea  ::
+//----------------
+
+textarea
+  width: 100%
+  padding: var(--spacing-3)
+  resize: none
+
+
+//----------------
+  ::  Disabled  ::
+//----------------
+
+input:disabled, input[readonly], select:disabled, textarea:disabled, textarea[readonly]
+  cursor: default
+
+
+//--------------------------
+  ::  Checkbox and radio  ::
+//--------------------------
+
+[type='checkbox'], [type='radio']
+  margin: 0 0 1rem
+
+
+[type='checkbox'], [type='radio']
+  display: inline-block
+  margin-right: 5px
+  vertical-align: baseline
+
+
+[type='checkbox'] + label, [type='radio'] + label
+  display: inline-block
+  margin: 0
+  vertical-align: middle
+
+
+//------------------
+//::::  Others  ::::
+//------------------
+
+fieldset
+  border: 0
+  margin: 0
+  padding: 0
+
+
+legend
+  margin-bottom: 0
+  max-width: 100%

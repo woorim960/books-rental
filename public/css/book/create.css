@@ -1,0 +1,60 @@
+/* public/css/book/create.css */
+
+#create-form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 80vw;
+  margin: 40px auto;
+  padding: 20px;
+  box-shadow: 2px 2px 7px 1px var(--form-shadow-color);
+  border-radius: 8px;
+}
+
+#create-form h1 {
+  font-size: var(--font-large);
+  font-weight: 500;
+}
+
+#create-form #create-input {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  margin: 20px 5vw;
+  font-size: var(--fonr-medium);
+}
+
+#create-form #create-input label {
+  margin-top: 10px;
+}
+
+#create-form #create-input .input {
+  height: 40px;
+  margin-top: 3px;
+  padding-left: 8px;
+  background-color: var(--input-bg-color);
+  border: 1px solid var(--input-outline-color);
+  border-radius: 2px;
+}
+
+#create-form #btns {
+  display: flex;
+  justify-content: center;
+}
+
+#create-form #btns button {
+  width: 100px;
+  margin: 10px 10px;
+  padding: 10px 5px;
+  font-size: var(--fonr-medium);
+  outline: none;
+  border: 1px solid var(--font-main-color);
+  border-radius: 4px;
+  background-color: var(--bg-main-color);
+}
+
+#create-form #btns button:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}
+

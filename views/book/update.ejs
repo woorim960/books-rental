@@ -1,0 +1,43 @@
+<!-- views/book/update.ejs -->
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <%- include('../templates/head') %>
+
+    <link rel="stylesheet" href="/css/book/create.css">
+    <script type="module" src="/js/book/update.js" defer></script>
+
+    <title>도서 대여 프로그램</title>
+</head>
+
+<body>
+    <%- include('../templates/b-header') %>
+
+    <hidden value=<%= seq %>></hidden>
+    
+    <section id="create-form">
+      <h1>도서 수정</h1>
+
+      <article id="create-input">
+        <label for="title">제목</label>
+        <input type="text" class="input" id="title" name="title" value="<%= title %>">
+        <label for="discription">설명</label>
+        <textarea type="text" class="input" id="discription" name="discription"><%= discription %></textarea>
+        <label for="author">저자</label>
+        <input type="text" class="input" id="author" name="author" value="<%= author %>">
+        <label for="price">가격</label>
+        <input type="text" class="input" id="price" name="price" value="<%= price %>">
+      </article>
+
+      <article id="btns">
+        <button id="create-btn">수정</button>
+      </article>
+    </section>
+</body>
+
+</html>

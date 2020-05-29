@@ -1,0 +1,90 @@
+/* utilities / others.sass
+ * > Any utility
+ */
+
+//------------------
+  ::  Full width  ::
+//------------------
+
+.full-width
+  width: 100%
+
+
+//-------------------
+  ::  full height  ::
+//-------------------
+
+.full-height
+  height: 100%
+
+
+//-----------------------------
+  ::  Enable text selection  ::
+//-----------------------------
+
+.select-text
+  user-select: text
+  cursor: text
+
+
+//------------------------------
+  ::  Disable user selection  ::
+//------------------------------
+
+.no-select
+  user-select: none
+  cursor: default
+
+
+//---------------
+  ::  Pointer  ::
+//---------------
+
+.pointer
+  cursor: pointer
+
+
+//----------------------
+  ::  Transition all  ::
+//----------------------
+
+.transition-all
+  transition: transition()
+
+
+//-------------------------
+  ::  Transition easing  ::
+//-------------------------
+
+.transition
+  transition-timing-function: $animation-easing
+
+
+//----------------
+  ::  Truncate  ::
+//----------------
+
+.truncate
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+
+//--------------------------
+  ::  Flexbox centralize  ::
+//--------------------------
+
+.flex-centralize
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-wrap: wrap
+  flex-direction: row
+
+
+//------------------------------
+  ::  Reset element defaults  ::
+//------------------------------
+
+.reset
+  all: unset

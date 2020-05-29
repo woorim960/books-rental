@@ -1,0 +1,179 @@
+/* utilities / flexbox.sass
+ * > Flexbox helper
+ */
+
+//------------
+  ::  Flex  ::
+//------------
+
+.flex
+  display: flex !important
+  flex-wrap: wrap
+  flex-direction: row
+
+
+//----------------------
+  ::  Flex direction  ::
+//----------------------
+
+.columns
+  flex-direction: column !important
+
+  &-reverse
+    flex-direction: column-reverse !important
+
+.rows
+  flex-direction: row !important
+
+  &-reverse
+    flex-direction: row-reverse !important
+
+
+//---------------------
+  ::  Flex wrapping  ::
+//---------------------
+
+.wrap
+  flex-wrap: wrap !important
+
+  &-reverse
+    flex-wrap: wrap-reverse !important
+
+.no-wrap
+  flex-wrap: nowrap !important
+
+
+//-----------------------
+  ::  Justify content  ::
+//-----------------------
+
+.justify
+  &-start
+    justify-content: flex-start !important
+
+  &-center
+    justify-content: center !important
+
+  &-end
+    justify-content: flex-end !important
+
+  &-between
+    justify-content: space-between !important
+
+  &-around
+    justify-content: space-around !important
+
+  &-evenly
+    justify-content: space-evenly !important
+
+
+//---------------------
+  ::  Align content  ::
+//---------------------
+
+.align
+  &-start
+    align-content: flex-start !important
+
+  &-center
+    align-content: center !important
+
+  &-end
+    align-content: flex-end !important
+
+  &-between
+    align-content: space-between !important
+
+  &-around
+    align-content: space-around !important
+
+  &-evenly
+    align-content: space-evenly !important
+
+
+//-------------------
+  ::  Align items  ::
+//-------------------
+
+.items
+  &-start
+    align-items: flex-start !important
+
+  &-center
+    align-items: center !important
+
+  &-end
+    align-items: flex-end !important
+
+  &-stretch
+    align-items: stretch !important
+
+  &-baseline
+    align-items: baseline !important
+
+
+//---------------------------
+  ::  Flex child ordering  ::
+//---------------------------
+
+@for $num from 0 through 24
+  .order
+
+    &-#{"" + $num}
+      order: #{ $num } !important
+
+    // Responsive flex order
+    @each $breakpoint in $breakpoints
+      $bp: nth($breakpoint, 1)
+      $viewport: nth($breakpoint, 2)
+
+      @include media($viewport)
+        &-#{"" + $bp}-#{"" + $num}
+          order: #{ $num } !important
+
+
+//-----------------------
+  ::  Flex child grow  ::
+//-----------------------
+
+@for $num from 0 through 24
+  .grow
+
+    &-#{$num}
+      flex-grow: #{ $num } !important
+      flex-basis: #{ $num } * 100%
+
+    // Responsive flex grow
+    @each $breakpoint in $breakpoints
+      $bp: nth($breakpoint, 1)
+      $viewport: nth($breakpoint, 2)
+
+      @include media($viewport)
+        &-#{$bp}-#{$num}
+          flex-grow: #{ $num } !important
+          flex-basis: #{ $num } * 100%
+
+
+//-----------------------
+  ::  Flex child fill  ::
+//-----------------------
+
+.fill
+  flex-grow: 1
+
+  // Responsive fill
+  @each $breakpoint in $breakpoints
+    $bp: nth($breakpoint, 1)
+    $viewport: nth($breakpoint, 2)
+
+    @include media($viewport)
+      &-#{$bp}
+        flex-grow: 1
+
+
+//-------------------
+  ::  flex shrink  ::
+//-------------------
+
+.static
+  flex-shrink: 0

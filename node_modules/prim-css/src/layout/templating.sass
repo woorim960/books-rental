@@ -1,0 +1,95 @@
+/* layout / templating.sass
+ * > Classes to create responsive layouts with rows and columns inside containers
+ */
+
+//-----------------
+  ::  container  ::
+//-----------------
+
+.container
+  width: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+
+  // Fill screen
+  &.fill-screen
+    min-height: 100vh
+
+  & >
+
+    //------------
+      ::  Rows  ::
+    //------------
+
+    .row
+      max-width: var(--max-layout-width)
+      display: flex
+      flex-wrap: wrap
+
+      // Responsive row spacing
+      @include break-xs
+        width: 100%
+
+      @include break-sm
+        width: calc(100% - #{ $spacing-3 })
+
+      @include break-md
+        width: calc(100% - #{ $spacing-4 })
+
+      // Full width row
+      &.full-row
+        width: 100%
+        max-width: 100%
+
+      // Child rows
+      .row
+        width: 100%
+        flex-basis: 100%
+
+
+//---------------
+  ::  Columns  ::
+//---------------
+.col
+  width: auto
+  flex-basis: auto
+  flex-grow: 0
+
+  // Fill space column
+  &-fill
+    --col-size: auto
+    flex-grow: 1
+
+  // Column sizes
+  @for $num from 1 through $layout-step
+    &-#{$num}
+      --col-size: calc((#{$num} / var(--layout-step)) * 100%)
+
+
+//--------------------------
+  ::  Responsive columns  ::
+//--------------------------
+@each $breakpoint in $breakpoints
+  $bp: nth($breakpoint, 1)
+  $viewport: nth($breakpoint, 2)
+
+  @include media($viewport)
+    .col-#{$bp}
+      --col-size: auto
+      flex-grow: 0
+
+      // Responsive fill space column
+      &-fill
+        --col-size: auto
+        flex-grow: 1
+
+      // Responsive column sizes
+      @for $num from 1 through $layout-step
+        &-#{$num}
+          --col-size: calc((#{$num} / var(--layout-step)) * 100%)
+
+
+[class*='col-']
+  width: var(--col-size)
+  flex-basis: var(--col-size)

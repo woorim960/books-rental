@@ -1,0 +1,19 @@
+/* variables / radius.scss
+ * > Border-radius helpers
+ */
+
+
+//-------------------
+//::  Declaration  ::
+//-------------------
+
+$radius: (
+  0: 0,
+  2: 2px,
+  4: 4px,
+  6: 6px,
+  10: 10px,
+  20: 20px,
+  max: 9999px,
+  full: 50%,
+);

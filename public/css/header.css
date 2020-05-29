@@ -1,0 +1,64 @@
+@import "reset.css";
+
+:root {
+    --head-bgcolor : rgb(255, 248, 239);
+    --head-logo-i-color: rgb(255, 182, 143);
+  
+    --bg-main-color: rgba(255, 251, 246, 0.331);
+  
+    --btn-hover-color: rgba(43, 43, 43, 0.242);
+  
+    --input-bg-color: rgba(254, 251, 248, 0.331);
+    --input-outline-color: rgb(252, 216, 198);
+  
+    --font-main-color: rgb(43, 43, 43);
+    --font-large: 24px;
+    --fonr-medium: 18px;
+  
+    --form-shadow-color: rgb(252, 212, 190);
+  }
+
+body {
+    color: var(--font-main-color);
+    background-color: var(--bg-main-color);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 26px;
+    color: var(--font-main-color);
+    font-size: var(--font-large);
+    font-weight: 700;
+    background-color: var(--head-bgcolor);
+}
+
+header #logo {
+    display: flex;
+    align-items: center;
+
+}
+
+header #logo:hover {
+    cursor: pointer;
+}
+
+header #logo i {
+    font-size: 40px;
+    color: var(--head-logo-i-color);
+}
+
+header #logo h1 {
+    margin-left: 5px;
+}
+
+header #status-list #sign-in:hover {
+    cursor: pointer;
+    text-decoration-line: underline;
+}
+
+header #status-list #book-create:hover {
+    cursor: pointer;
+    text-decoration-line: underline;
+}

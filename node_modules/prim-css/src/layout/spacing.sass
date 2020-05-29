@@ -1,0 +1,67 @@
+/* layout / spacing.sass
+ * > Set of classes to add a predefined spacing to the elements
+ */
+
+//--------------------------
+  ::  Margin and padding  ::
+//--------------------------
+
+@each $item in $spacers
+  $key: nth($item, 1)
+  $value: var(--spacing-#{ $key })
+
+  @each $attr in ('.m': "margin", '.p': "padding")
+    $prefix: nth($attr, 1)
+    $sufix: #{ '-' + $key }
+    $attribute: nth($attr, 2)
+
+    // All, top and vertical
+    @include selector('' y t, $prefix, $sufix)
+      #{ $attribute }-top : $value !important
+
+    // All, bottom and vertical
+    @include selector('' y b, $prefix, $sufix)
+      #{ $attribute }-bottom: $value !important
+
+    // All, left and horizontal
+    @include selector('' x l, $prefix, $sufix)
+      #{ $attribute }-left: $value !important
+
+    // All, right and horizontal
+    @include selector('' x r, $prefix, $sufix)
+      #{ $attribute }-right: $value !important
+
+
+//-------------------------------------
+  ::  Responsive margin and padding  ::
+//-------------------------------------
+
+@each $breakpoint in $breakpoints
+  $bp: nth($breakpoint, 1)
+  $viewport: nth($breakpoint, 2)
+
+  @include media($viewport)
+    @each $item in $spacers
+      $key: nth($item, 1)
+      $value: var(--spacing-#{ $key })
+
+      @each $attr in ('.m': "margin", '.p': "padding")
+        $prefix: nth($attr, 1)
+        $sufix: #{ $bp }-#{ $key }
+        $attribute: nth($attr, 2)
+
+        // All, vertical and top
+        @include selector('' y t, $prefix, $sufix)
+          #{ $attribute }-top : $value !important
+
+        // All, vertical and bottom
+        @include selector('' y b, $prefix, $sufix)
+          #{ $attribute }-bottom: $value !important
+
+        // All, horizontal and left
+        @include selector('' x l, $prefix, $sufix)
+          #{ $attribute }-left: $value !important
+
+        // All, horizontal and right
+        @include selector('' x r, $prefix, $sufix)
+          #{ $attribute }-right: $value !important

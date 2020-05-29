@@ -1,0 +1,63 @@
+/* layout / aspect-ratio.sass
+ * > Leaves element height by width ratio
+ */
+
+//-------------------
+ ::  Aspect ratio  ::
+//-------------------
+
+.ratio, [class*='ratio-']
+  padding: 0 !important
+  position: relative
+
+  &:after
+    content: ""
+    width: 100%
+    padding-bottom: calc(100% * var(--ratio, 1))
+    display: block
+
+  > *
+      width: 100%
+      height: 100%
+      position: absolute
+
+      &[class*="spacing-"]
+        height: calc(100% + var(--col-spacing, 0)) !important
+
+
+//------------------------------
+ ::  Responsive aspect ratio  ::
+//------------------------------
+
+@each $breakpoint in $breakpoints
+  $bp: nth($breakpoint, 1)
+  $viewport: nth($breakpoint, 2)
+
+  @include media($viewport)
+    .ratio-#{$bp}
+      --ratio-#{$bp}: var(--ratio-#{bp})
+
+
+//----------------------------
+ ::  Standard aspect ratio  ::
+//----------------------------
+
+@each $item in $ratios
+  $key: "" + nth($item, 1)
+  $value: nth($item, 2)
+
+  .ratio-#{$key}
+    --ratio: #{$value}
+
+
+  //--------------------------------
+   ::  Responsive standard ratio  ::
+  //--------------------------------
+
+  @each $breakpoint in $breakpoints
+    $bp: nth($breakpoint, 1)
+    $viewport: nth($breakpoint, 2)
+
+    @include media($viewport)
+      .ratio-#{$bp}-#{$key}
+        --ratio: #{$value}

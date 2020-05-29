@@ -1,0 +1,34 @@
+/* mixins / fluid-sizing.scss
+ * > Add a property that varies with the viewport
+ */
+
+//--------------------
+//::  Fluid sizing  ::
+//--------------------
+
+// Source: https://css-tricks.com/snippets/css/fluid-typography
+
+@mixin fluid-sizing($attribute, $min-vw, $max-vw, $min-size, $max-size)
+{
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-size);
+  $u4: unit($max-size);
+
+  @if ($u1 == $u2 and $u1 == $u3 and $u1 == $u4)
+  {
+    $calc: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+
+    & {
+      #{$attribute}: $min-size;
+
+      @include media($min-vw) {
+        #{$attribute}: #{ $calc };
+      }
+
+      @include media($max-vw) {
+        #{$attribute}: $max-size;
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+/* variables > spacing.scss
+ * > Spacing configuration
+ */
+
+//-------------------
+//::  Declaration  ::
+//-------------------
+
+// Base spacing size
+$spacing-base_: 12pt;
+$spacing-base: var(--spacing-base);
+
+// 0
+$spacing-0_: 0;
+$spacing-0:  var(--spacing-0);
+
+// 3pt
+$spacing-1_: calc(#{ $spacing-base } / 4);
+$spacing-1:  var(--spacing-1);
+
+// 6pt
+$spacing-2_: calc(#{ $spacing-base } / 2);
+$spacing-2:  var(--spacing-2);
+
+// 12pt
+$spacing-3_: #{ $spacing-base };
+$spacing-3:  var(--spacing-3);
+
+// 24pt
+$spacing-4_: calc(#{ $spacing-base } * 2);
+$spacing-4:  var(--spacing-4);
+
+// 48pt
+$spacing-5_: calc(#{ $spacing-base } * 4);
+$spacing-5:  var(--spacing-5);
+
+
+
+//-------------
+//::  Index  ::
+//-------------
+
+$spacers: (
+  0: $spacing-0,
+  1: $spacing-1,
+  2: $spacing-2,
+  3: $spacing-3,
+  4: $spacing-4,
+  5: $spacing-5,
+);
+
+$spacers_: (
+  0: $spacing-0_,
+  1: $spacing-1_,
+  2: $spacing-2_,
+  3: $spacing-3_,
+  4: $spacing-4_,
+  5: $spacing-5_,
+);
+
+
+//------------------
+//::  Attachment  ::
+//------------------
+
+:root
+{
+  // Base spacing size
+  --spacing-base: #{ $spacing-base_ };
+
+  // Spacing sizes
+  @each $item in $spacers_
+  {
+    $key: "" + nth($item, 1);
+    $value: nth($item, 2);
+    $prefix: spacing;
+
+    --#{$prefix}-#{$key}: #{ $value };
+  }
+}

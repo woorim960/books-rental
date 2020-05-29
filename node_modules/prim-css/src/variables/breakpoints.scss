@@ -1,0 +1,50 @@
+/* variables / breakpoints.scss
+ * > Viewport breakpoints
+ */
+
+//-------------------
+//::  Declaration  ::
+//-------------------
+
+// Extra small (omitted)
+$breakpoint-xs: 0;
+
+// Small
+$breakpoint-sm: 540px;
+
+// Medium
+$breakpoint-md: 768px;
+
+// Large
+$breakpoint-lg: 1000px;
+
+// Extra large
+$breakpoint-xl: 1600px;
+
+
+//-------------
+//::  Index  ::
+//-------------
+
+$breakpoints: (
+  sm: $breakpoint-sm,
+  md: $breakpoint-md,
+  lg: $breakpoint-lg,
+  xl: $breakpoint-xl,
+);
+
+
+//------------------
+//::  Attachment  ::
+//------------------
+
+:root
+{
+  @each $item in $breakpoints
+  {
+    $key: "" + nth($item, 1);
+    $value: nth($item, 2);
+
+    --breakpoint-#{ $key }: #{ $value };
+  }
+}

@@ -1,0 +1,124 @@
+extends ../src/defaults/page.pug
+
+block append head
+  link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+
+
+block body
+  
+  .container.spacing-3
+    
+    header.row
+      .col-12
+        .l-10.w-bold PRIM
+        .l-14 Standard components
+    
+        
+        
+    .row.spacing-2
+      
+      .col-12
+        .l-12.w-bold Anchor
+    
+      .col-12.l-08
+        | Lorem ipsum dolor sit amet, 
+        a(href='#anchor') Anchor
+        |  Aenean dignissim elementum purus non tincidunt. 
+        a(href='https://felixluciano.github.io/prim' target='_blank') Reference
+        |  Maecenas ut dui ultricies, sagittis quam ac, rhoncus lorem. Suspendisse ut erat id tortor auctor pellentesque at at nulla.
+    
+        
+        
+    .row.spacing-2
+      
+      .col-12
+        .l-12.w-bold Button
+    
+      .col-12.spacing-1
+        
+        button Default
+          
+        a(type='button') Anchor
+        
+        button.outline Outline
+        
+        button.bg-primary Primary
+        
+        button.bg-dark.dark Custom
+        
+        button.bg-dark.dark.radius-4 Radius
+        
+        button.bg-dark.dark.radius-max Rounded
+          
+        button(disabled) Disabled
+        
+        button.icon-left Icon
+          i.button-icon.material-icons add
+          
+        button.icon-right Icon
+          i.button-icon.material-icons add
+          
+        button.icon.bg-dark.dark
+          i.button-icon.material-icons add
+          
+        button.icon.bg-dark.dark.
+          <svg class='button-icon' fill='currentcolor' width='24' height='24' viewBox='0 0 24 24'>
+            <path d='M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13C15,12.45 14.55,12 14,12H8V10H10C10.55,10 11,9.55 11,9V7H13C14.1,7 15,6.1 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16C9,17.1 9.9,18 11,18M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2Z'></path>
+          </svg>
+          
+        button.icon.bg-dark.dark.large
+          i.button-icon.material-icons add
+      
+          
+          
+    .row.spacing-2
+      
+      .col-12
+        .l-12.w-bold Input
+    
+      .col-12.spacing-2
+        input(type='color')
+          
+        input(type='date')
+          
+        input(type='datetime' placeholder='Datetime input')
+          
+        input(type='datetime-local')
+          
+        input(type='email' placeholder='Email input')
+          
+        input(type='file')
+          
+        input(type='month')
+          
+        input(type='number' placeholder='Number input')
+          
+        input(type='password' placeholder='Password input')
+          
+        input(type='search' placeholder='Search input')
+          
+        input(type='tel' placeholder='Tel input')
+          
+        input(type='text' placeholder='Text input')
+          
+        input(type='time')
+          
+        input(type='url' placeholder='Url input')
+          
+        input(type='week')
+          
+        select
+          option(selected) Option 1
+          option(disabled) Option 2
+
+        input(type='text' placeholder='Text input disabled' disabled)
+
+        input.radius-4(type='text' placeholder='Text input radius')
+
+        input.radius-max(type='text' placeholder='Text input rounded')
+          
+          
+  #anchor.container.fill-screen
+    .row.fill.flex-centralize
+      .col-12.a-center
+        span.l-20.w-black PRIM

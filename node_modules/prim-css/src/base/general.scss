@@ -1,0 +1,100 @@
+/* base / generals.scss
+ * > Declaration of global styles for standard HTML elements
+ */
+
+
+html {
+  height: 100vh;
+  box-sizing: border-box;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  font-family: $primary-font;
+  -moz-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  line-height: 1.4;
+  text-rendering: optimizeLegibility;
+  cursor: default;
+  user-select: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  position: absolute;
+}
+
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+
+* {
+  -webkit-tap-highlight-color: transparent;
+
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-white);
+    text-shadow: none;
+  }
+}
+
+
+strong {
+  font-weight: bold;
+}
+
+
+em {
+  font-style: italic;
+}
+
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+
+blockquote,
+figure {
+  margin: 0;
+}
+
+
+blockquote {
+  .quote {
+    quotes: '“' '”' '‘' '’';
+
+    &::before {
+      content: open-quote;
+    }
+
+    &::after {
+      content: close-quote;
+    }
+  }
+}
+
+
+table {
+  padding: 0;
+}

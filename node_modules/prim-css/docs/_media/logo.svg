@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 640 192" style="enable-background:new 0 0 640 192;" xml:space="preserve">
+	<g>
+		<path fill="#222222" d="M160,64c0,35.4-28.6,64-64,64H16V96h80c17.7,0,32-14.3,32-32s-14.3-32-32-32H16L32,0h64c17.7,0,33.7,7.2,45.3,18.7C152.8,30.3,160,46.3,160,64z"/>
+		<rect fill="#111111" width="32" height="192"/>
+	</g>
+	<g>
+		<polygon fill="#333333" points="352,192 272,112 226.7,112 306.7,192"/>
+		<path fill="#222222" d="M352,64c0,35.4-28.6,64-64,64h-80V96h80c17.7,0,32-14.3,32-32s-14.3-32-32-32h-80l16-32h64c17.7,0,33.7,7.2,45.3,18.7C344.8,30.3,352,46.3,352,64z"/>
+		<rect x="192" fill="#111111" width="32" height="192"/>
+	</g>
+	<g>
+		<rect x="384" y="32" fill="#222222" width="32" height="160"/>
+		<rect x="384" fill="#111111" width="32" height="32"/>
+	</g>
+	<g>
+		<rect fill="#222" x="448" y="45.3" width="32" height="146.7"/>
+		<rect fill="#222" x="608" y="45.3" width="32" height="146.7"/>
+		<polygon fill="#111111" points="640,0 640,45.3 608,77.3 566.6,118.6 544,141.2 521.4,118.6 480,77.3 448,45.3 448,0 544,96"/>
+	</g>
+</svg>

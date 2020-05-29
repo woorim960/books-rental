@@ -1,0 +1,23 @@
+extends ../src/defaults/page.pug
+
+block body
+  
+  .container.spacing-3
+    
+    header.row
+      .col-12
+        .l-10.w-bold PRIM
+        .l-14 LAYOUT COLUMNS
+    
+        
+        
+    section.row.spacing-1
+    
+      each _, i in Array(13)
+        - index = 12 - i
+        
+        if 12 % index === 0
+          each _ in Array(12 / index)
+            
+            .py-2.bg-dark.a-center(class="col-" + index)
+              span.l-08.c-white.w-bold= index

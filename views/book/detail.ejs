@@ -1,0 +1,45 @@
+<!-- views/book/create.ejs -->
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <%- include('../templates/head') %>
+
+    <link rel="stylesheet" href="/css/book/detail.css">
+    <script type="module" src="/js/book/detail.js" defer></script>
+
+    <title>도서 대여 프로그램</title>
+</head>
+
+<body>
+    <%- include('../templates/b-header') %>
+
+    <hidden value=<%= seq %>></hidden>
+    
+    <section id="detail-form">
+      <h1><%= title %></h1>
+
+      <article id="detail-view">
+        <h2>설명</h2>
+        <span><%= discription %></span>
+
+        <div id="things">
+          <h2>저자</h2>
+          <span><%= author %></span>
+          <h2>가격</h2>
+          <span><%= price %></span>
+        </div>
+      </article>
+
+      <article id="btns">
+        <button id="update-btn">수정</button>
+        <button id="delete-btn">삭제</button>
+      </article>
+    </section>
+</body>
+
+</html>

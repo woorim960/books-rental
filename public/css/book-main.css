@@ -1,0 +1,48 @@
+/* public/book-main.css */
+
+/* 테이블 전체 폼 */
+#read-form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 85vw;
+  margin: 40px auto;
+  padding: 20px;
+  box-shadow: 2px 2px 7px 1px var(--form-shadow-color);
+  border-radius: 8px;
+  border-collapse: collapse;
+}
+
+/* 테이블 */
+#read-form #read-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* 필드 */
+#read-form #read-table thead #field th{
+  padding: 10px;
+  font-size: var(--fonr-medium);
+  font-weight: 700;
+  border: 1px solid var(--head-logo-i-color);
+  white-space: nowrap; 
+}
+
+/* 레코드 */
+#read-form #read-table tbody tr:hover {
+  cursor: pointer;
+  color: gray;
+}
+
+#read-form #read-table tbody tr:active {
+  transform: scale(0.99);
+}
+
+#read-form #read-table tbody td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid var(--head-logo-i-color);
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,27 @@
+/* variables / animation.scss
+ * > Animation
+ */
+
+//-------------------
+//::  Declaration  ::
+//-------------------
+
+// Copyright 2017 Google Inc.
+// https://github.com/material-components/material-components-web/blob/master/packages/mdc-animation/_variables.scss
+
+$animation-easing: cubic-bezier(.4, 0, .2, 1) !default;
+$animation-easing-acceleration: cubic-bezier(.4, 0, 1, 1) !default;
+$animation-easing-deceleration: cubic-bezier(0, 0, .2, 1) !default;
+$animation-easing-sharp: cubic-bezier(.4, 0, .6, 1) !default;
+
+
+//------------------
+//::  Attachment  ::
+//------------------
+
+:root {
+  --animation-easing: #{ $animation-easing };
+  --animation-easing-acceleration: #{ $animation-easing-acceleration };
+  --animation-easing-deceleration: #{ $animation-easing-deceleration };
+  --animation-easing-sharp: #{ $animation-easing-sharp };
+}

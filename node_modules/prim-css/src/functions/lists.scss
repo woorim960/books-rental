@@ -1,0 +1,56 @@
+/* functions / lists.scss
+ * > Functions for creating and manipulating lists
+ */
+
+// Suffix
+// > Adds a prefix and suffix to items in a list
+//
+// - eg.
+//   Input: appendToItems('a' 'b', 'p-', '-s')
+//   Output:  p-a-s p-b-s
+//
+// - eg.
+//   Input: appendToItems('a' 'b', 'p1-' 'p2-', '-s1' '-s2')
+//   Output:  p1-a-s1 p2-a-s1 p1-a-s2 p2-a-s2 p1-b-s1 p2-b-s1 p1-b-s2 p2-b-s2
+//
+// - Comments
+//   - Recommended for creating selectors
+
+@function appendToItems($list, $prefixes, $sufixes)
+{
+  $newList: ();
+
+  @each $item in $list
+  {
+    @each $sufix in $sufixes
+    {
+      @each $prefix in $prefixes
+      {
+        $newItem: $prefix + $item + $sufix;
+        $newList: append($newList, $newItem);
+      }
+    }
+  }
+
+  @return $newList;
+}
+
+
+// Enumeration
+// > Creates a list with the count from a number through another
+//
+// - eg.
+//   Input: fromThrough(0, 10)
+//   Output: 0 1 2 3 4 5 6 7 8 9 10
+
+@function fromThrough($from, $through)
+{
+  $result: ();
+
+  @for $num from 1 through 12
+  {
+    $result: append($result, $num);
+  }
+
+  @return $result;
+}

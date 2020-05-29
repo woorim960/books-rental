@@ -1,0 +1,139 @@
+/* public/css/home/sign-in.css */
+
+@import "../reset.css";
+
+:root {
+    --head-bgcolor : rgb(255, 248, 239);
+    --head-logo-i-color: rgb(255, 182, 143);
+  
+    --bg-main-color: rgba(255, 251, 246, 0.331);
+  
+    --btn-hover-color: rgba(43, 43, 43, 0.242);
+  
+    --input-bg-color: rgba(254, 251, 248, 0.331);
+    --input-outline-color: rgb(252, 216, 198);
+  
+    --font-main-color: rgb(43, 43, 43);
+    --font-large: 24px;
+    --font-medium: 18px;
+  
+    --form-shadow-color: rgb(252, 212, 190);
+  }
+
+body {
+    color: var(--font-main-color);
+    background-color: var(--bg-main-color);
+}
+
+header {
+  text-align: center;
+  padding: 15px 0;
+  background-color: var(--head-bgcolor);
+}
+
+header:hover {
+  cursor: pointer;
+  color: var(--btn-hover-color);
+  text-decoration-line: underline;
+}
+
+header h1 {
+  margin-bottom: 5px;
+  font-size: var(--font-large);
+  font-weight: 900;
+  
+}
+
+#signin-form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 80vw;
+  margin: 40px auto;
+  padding: 20px;
+  box-shadow: 2px 2px 7px 1px var(--form-shadow-color);
+  border-radius: 8px;
+}
+
+#signin-form h1 {
+  font-size: var(--font-large);
+  font-weight: 500;
+}
+
+#signin-form #signin-input {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  margin: 20px 5vw;
+  font-size: var(--fonr-medium);
+}
+
+#signin-form #signin-input label {
+  margin-top: 10px;
+}
+
+#signin-form #signin-input .input {
+  height: 40px;
+  margin-top: 3px;
+  padding-left: 8px;
+  background-color: var(--input-bg-color);
+  border: 1px solid var(--input-outline-color);
+  border-radius: 2px;
+}
+
+#signin-form #btns {
+  display: flex;
+  justify-content: center;
+}
+
+#signin-form #btns button {
+  width: 100px;
+  margin: 10px 10px;
+  padding: 10px 5px;
+  font-size: var(--fonr-medium);
+  outline: none;
+  border: 1px solid var(--font-main-color);
+  border-radius: 4px;
+  background-color: var(--bg-main-color);
+}
+
+#signin-form #btns button:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
+#datas {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 80vw;
+  margin: 40px auto;
+  padding: 20px;
+  box-shadow: 2px 2px 7px 1px var(--form-shadow-color);
+  border-radius: 8px;
+}
+
+#datas h1 {
+  font-size: var(--font-large);
+  font-weight: 500;
+}
+
+#datas #discription {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#datas #discription h2 {
+  margin-top: 20px;
+  font-size: var(--font-medium);
+  font-weight: 500;
+}
+
+#datas #discription span {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-left: 5px;
+  color: rgb(82, 82, 82);
+}
+

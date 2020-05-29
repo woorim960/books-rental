@@ -1,0 +1,72 @@
+/* layout / grid.sass
+ * > Classes for spacing grid-structured layouts
+ */
+
+//-------------------
+  ::  Row spacing  ::
+//-------------------
+
+.container.spacing
+
+  @each $item in $spacers
+    $key: "" + nth($item, 1)
+
+    &-#{$key} > .row + .row
+      margin-top: calc(var(--spacing-#{$key}) * 2)
+
+
+//----------------------
+  ::  Column spacing  ::
+//----------------------
+
+[class*="spacing-"]:not(.container)
+  width: calc(100% + var(--col-spacing)) !important
+  margin-top: calc(0px - var(--col-spacing))
+  display: flex
+  flex-wrap: wrap
+  flex-direction: row
+
+  &.row, &.row-fill
+    margin-left: calc(var(--col-spacing))
+    max-width: calc(1000px + var(--col-spacing))
+    margin-top: initial
+    margin-bottom: calc(0px - var(--col-spacing))
+    position: relative
+    top: calc(0px - var(--col-spacing))
+
+    &.full-row
+      max-width: calc(100% + var(--col-spacing)) !important
+
+  > *
+    margin-top: var(--col-spacing)
+    margin-right: var(--col-spacing)
+
+    &[class*='col-']
+      width: calc(var(--col-size) - var(--col-spacing, 0px))
+      flex-basis: calc(var(--col-size) - var(--col-spacing, 0px))
+
+
+.spacing
+  @each $item in $spacers
+    $key: "" + nth($item, 1)
+
+    &-#{$key}
+      --col-spacing: var(--spacing-#{$key}) !important
+
+
+
+  //---------------------------------
+    ::  Responsive column spacing  ::
+  //---------------------------------
+
+  @each $breakpoint in $breakpoints
+    $bp: nth($breakpoint, 1)
+    $viewport: nth($breakpoint, 2)
+
+    @include media($viewport)
+      @each $item in $spacers
+        $key: "" + nth($item, 1)
+        $value: nth($item, 2)
+
+        &-#{$bp}-#{$key}
+          --col-spacing: #{$value} !important

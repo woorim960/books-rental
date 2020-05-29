@@ -1,0 +1,49 @@
+/* variables / typography.scss
+ * > Typography configuration
+ */
+
+//-------------------
+//::  Declaration  ::
+//-------------------
+
+// Base font-size
+
+$primary-font: -apple-system,
+               BlinkMacSystemFont,
+               'Roboto',
+               'Helvetica Neue',
+               Arial, sans-serif,
+               'Apple Color Emoji',
+               'Segoe UI Emoji',
+               'Segoe UI Symbol';
+
+
+// Responsive font sizing
+
+$font-size_min-vw: 0px;
+$font-size_max-vw: $max-layout-width;
+$font-size_min-size: 16px;
+$font-size_max-size: 24px;
+
+
+// Font weight
+
+$weight-thin: 100;
+$weight-light: 300;
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+$weight-black: 900;
+
+// Index
+
+$font-weights: (
+  thin:     $weight-thin,
+  light:    $weight-light,
+  regular:  $weight-regular,
+  medium:   $weight-medium,
+  semibold: $weight-semibold,
+  bold:     $weight-bold,
+  black:    $weight-black,
+);

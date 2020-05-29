@@ -1,0 +1,101 @@
+/* typography / typography.sass
+ * > Typography helpers
+ */
+
+//---------------------------------------
+//::::  Responsive page text sizing  ::::
+//---------------------------------------
+body
+  @include fluid-sizing(font-size, $font-size_min-vw, $font-size_max-vw, $font-size_min-size, $font-size_max-size)
+
+
+//-----------------------
+//::::  Text length  ::::
+//-----------------------
+@for $int from 0 through 6
+  @for $dec from 0 through 9
+    $value: #{$int + "." + $dec + "em"}
+
+    .l-#{$int + "" + $dec}
+      font-size: $value !important
+
+
+//----------------------------------
+//::::  Responsive text length  ::::
+//----------------------------------
+@each $breakpoint in $breakpoints
+  $bp: nth($breakpoint, 1)
+  $viewport: nth($breakpoint, 2)
+
+  @include media($viewport)
+    @for $int from 0 through 5
+      @for $dec from 0 through 9
+        $value: #{$int + "." + $dec + "em"}
+
+        .l-#{$bp}-#{$int + "" + $dec}
+          font-size: $value !important
+
+
+//-----------------------
+//::::  Font weight  ::::
+//-----------------------
+.w
+  @each $item in $font-weights
+    $key: "" + nth($item, 1)
+    $value: nth($item, 2)
+
+    &-#{$key}
+      font-weight: $value
+
+
+//----------------------------------
+//::::  Responsive font weight  ::::
+//----------------------------------
+@each $breakpoint in $breakpoints
+  $bp: nth($breakpoint, 1)
+  $viewport: nth($breakpoint, 2)
+
+  @include media($viewport)
+    .w-#{$bp}
+
+      @each $item in $font-weights
+        $key: "" + nth($item, 1)
+        $value: nth($item, 2)
+
+        &-#{bp}-#{$key}
+          font-weight: $value
+
+
+//----------------------
+//::::  Font style  ::::
+//----------------------
+.s
+  &-italic
+    font-style: italic
+
+
+//---------------------------
+//::::  Text decoration  ::::
+//---------------------------
+.d
+  &-underline
+    text-decoration: underline
+
+
+//----------------------
+//::::  Text align  ::::
+//----------------------
+.a
+  @each $item in (left, center, right, justify)
+
+    &-#{$item}
+      text-align: #{$item}
+
+    // Responsive text align
+    @each $breakpoint in $breakpoints
+      $bp: nth($breakpoint, 1)
+      $viewport: nth($breakpoint, 2)
+
+      @include media($viewport)
+        .a-#{$bp}-#{$item}
+            text-align: #{$item}

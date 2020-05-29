@@ -1,0 +1,20 @@
+/* variables / layout.scss
+ * > Layout configuration
+ */
+
+//-------------------
+//::  Declaration  ::
+//-------------------
+
+$max-layout-width: 1000px;
+$layout-step: 12;
+
+
+//------------------
+//::  Attachment  ::
+//------------------
+
+:root {
+  --max-layout-width: #{ $max-layout-width };
+  --layout-step: #{ $layout-step };
+}

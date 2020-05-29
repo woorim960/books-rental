@@ -1,0 +1,21 @@
+/* variables / aspect-ratio.scss
+ * > Standard aspect ratio
+ */
+
+//-------------------
+//::  Declaration  ::
+//-------------------
+
+$ratio-square: 1;
+
+$ratio-wide: 9/16;
+
+
+//-------------
+//::  Index  ::
+//-------------
+
+$ratios: (
+  square: $ratio-square,
+  wide:   $ratio-wide,
+);

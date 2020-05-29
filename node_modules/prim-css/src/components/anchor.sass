@@ -1,0 +1,21 @@
+/* components / anchor.sass
+ * > Style statement for anchors
+ */
+
+//--------------
+  ::  Anchor  ::
+//--------------
+
+a, a:visited
+  color: var(--color-primary)
+
+// Hover underline
+a:hover
+  text-decoration: underline
+
+
+// Remove hover underline from Anchor-button
+// eg. <a type='button'>Button</a>
+a[type='button'], a[type='reset'], a[type='submit']
+  &:hover
+    text-decoration: none

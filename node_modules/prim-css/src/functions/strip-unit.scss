@@ -1,0 +1,9 @@
+/* functions / strip-unit.scss
+ * > Strip the unit of numbers
+ * Source: https://css-tricks.com/snippets/css/fluid-typography
+ */
+
+@function strip-unit($value)
+{
+  @return $value / ($value * 0 + 1);
+}

@@ -1,0 +1,133 @@
+/* variables / colors.scss
+ * > Colors and theming
+ */
+
+//---------------------------
+//::::  Standard colors  ::::
+//---------------------------
+
+$standard-colors: (
+  black: #000,
+  dark:  #111,
+  white: #FFF,
+  light: #DDD,
+);
+
+
+//-----------------------------
+//::::  Short-tone colors  ::::
+//-----------------------------
+
+$short-tone-colors: (
+  red:       #F33,
+  orange:    #F83,
+  yellow:    #EC3,
+  lime:      #8D3,
+  green:     #3C5,
+  turquoise: #2CA,
+  blue:      #29F,
+  sapphire:  #25F,
+  purple:    #72F,
+  fuchsia:   #E39,
+);
+
+
+//----------------------------
+//::::  Full-tone colors  ::::
+//----------------------------
+
+$full-tone-colors: (
+  gray:     #AAA,
+  bluegray: #578,
+);
+
+
+//--------------------------
+//::::  Theming colors  ::::
+//--------------------------
+
+$theming-colors: (
+  primary:   var(--color-blue),
+  secondary: var(--color-red),
+  palette-1: var(--color-white),
+  palette-2: var(--color-white),
+  palette-3: var(--color-white),
+  palette-4: var(--color-white),
+  palette-5: var(--color-white),
+  palette-6: var(--color-white),
+);
+
+
+//------------------
+//::  Attachment  ::
+//------------------
+
+// CSS variable prefix
+// eg. var(--color-green)
+
+
+:root
+{
+  // Standard colors
+  @each $item in $standard-colors
+  {
+    $key: "" + nth($item, 1);
+    $value: nth($item, 2);
+
+    --color-#{ $key }: #{ $value };
+  }
+
+
+  // Short-tone colors
+  @each $item in $short-tone-colors
+  {
+    $key: "" + nth($item, 1);
+    $value: nth($item, 2);
+
+    // Base color
+    --color-#{ $key }: #{ $value };
+
+    // Tones
+    @for $index from 1 through 4
+    {
+      // Lighter tones
+      --color-#{ $key }-l#{ $index }: #{ lighten($value, 6 * $index) };
+
+      // Darken tones
+      --color-#{ $key }-d#{ $index }: #{ desaturate(darken($value, 6 * $index), 7 * $index) };
+    }
+  }
+
+
+  // Full-tone colors
+  @each $item in $full-tone-colors
+  {
+    $key: "" + nth($item, 1);
+    $value: nth($item, 2);
+
+    // Base tone
+    --color-#{ $key }: #{ $value };
+
+    // Lighter tones
+    @for $index from 1 through 6
+    {
+      --color-#{ $key }-l#{ $index }: #{ lighten($value, 6 * $index) };
+    }
+
+    // Darken tones
+    @for $index from 1 through 12
+    {
+      --color-#{ $key }-d#{ $index }: #{ darken($value, 5 * $index) };
+    }
+  }
+
+
+  // Theming colors
+  @each $item in $theming-colors
+  {
+    $key: "" + nth($item, 1);
+    $value: nth($item, 2);
+
+    --color-#{ $key }: #{ $value };
+  }
+}
