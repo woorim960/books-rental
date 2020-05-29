@@ -18,6 +18,7 @@ function readBooks() {
 
 // 도서 상세 페이지 이동
 function showBookDetail(event) {
+  const seq = event.target.parentNode.childNodes[1].innerText;
   location.href = `/book/${seq}`;
 }
 
