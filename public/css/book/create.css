@@ -58,3 +58,7 @@
   transform: scale(1.02);
 }
 
+#create-form #btns button:active {
+  transform: scale(1.00);
+}
+

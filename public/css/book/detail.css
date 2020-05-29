@@ -68,3 +68,7 @@
   transform: scale(1.02);
 }
 
+#detail-form #btns button:active {
+  transform: scale(1.00);
+}
+

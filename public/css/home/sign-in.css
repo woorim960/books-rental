@@ -114,6 +114,10 @@ header .btn-move-book i {
   transform: scale(1.02);
 }
 
+#signin-form #btns button:active {
+  transform: scale(1.00);
+}
+
 #datas {
   display: flex;
   flex-direction: column;
