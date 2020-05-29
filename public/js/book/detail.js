@@ -1,7 +1,8 @@
 // public/js/create.js
 
 // Book 클래스 불러오기
-import Book from './class.js';
+import Book from '../model/Book.js';
+import User from '../model/User.js';
 'use strict';
 
 // HTML 오브젝트 변수 선언
@@ -21,6 +22,7 @@ function showBookDelete() {
 
 // 초기 실행 함수
 function init() {
+  User.checkSessionOfDetail(btnUpdate, btnDelete);
   btnUpdate.addEventListener('click', showBookUpdate);
   btnDelete.addEventListener('click', showBookDelete);
 }

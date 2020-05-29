@@ -1,4 +1,5 @@
-// public/js/book/class.js
+// public/js/model/Book.js
+'use strict';
 
 // Book 클래스 정의
 export default class Book {
@@ -65,7 +66,10 @@ export default class Book {
     })
       .then(res => res.json())
       .then(json => {
-        if (json) alert('데이터가 추가되었습니다.');
+        if (json) {
+          location.href = '/book';
+          alert('데이터가 추가되었습니다.');
+        }
       })
       .catch(err => alert(err));
   }

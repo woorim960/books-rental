@@ -58,7 +58,16 @@ header #status-list #sign-in:hover {
     text-decoration-line: underline;
 }
 
+header #status-list #sign-out:hover {
+    cursor: pointer;
+    text-decoration-line: underline;
+}
+
 header #status-list #book-create:hover {
     cursor: pointer;
     text-decoration-line: underline;
+}
+
+.deactive {
+    display: none;
 }

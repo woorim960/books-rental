@@ -9,4 +9,8 @@ router.get('/sign-in', (req, res) => {
   res.render('home/sign-in');
 });
 
+router.get('/sign-up', (req, res) => {
+  res.render('home/sign-up');
+});
+
 module.exports = router;

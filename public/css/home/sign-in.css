@@ -26,17 +26,22 @@ body {
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
-  padding: 15px 0;
+  padding: 15px 20px;
   background-color: var(--head-bgcolor);
 }
 
-header:hover {
+header .logo logo:hover,
+header .btn-move-book:hover {
   cursor: pointer;
   color: var(--btn-hover-color);
   text-decoration-line: underline;
 }
 
+header logo,
 header h1 {
   margin-bottom: 5px;
   font-size: var(--font-large);
@@ -135,5 +140,9 @@ header h1 {
   margin-top: 5px;
   margin-left: 5px;
   color: rgb(82, 82, 82);
+}
+
+.placeholder::-webkit-input-placeholder {
+  color: #ff7967
 }
 

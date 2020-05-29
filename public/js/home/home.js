@@ -1,4 +1,5 @@
 // public/js/home.js
+'use strict';
 
 const title = document.querySelector('#title');
 

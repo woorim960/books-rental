@@ -1,7 +1,7 @@
 // public/js/update.js
 
 // Book 클래스 불러오기
-import Book from './class.js';
+import Book from '../model/Book.js';
 'use strict';
 
 // HTML 오브젝트 변수 선언

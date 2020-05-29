@@ -1,7 +1,7 @@
 // public/js/book-main.js
 
-// Book 클래그 불러오기
-import Book from './book/class.js';
+// Book 클래스 불러오기
+import Book from './model/Book.js';
 'use strict';
 
 // HTML 오브젝트 변수 선언
@@ -25,8 +25,9 @@ function showBookDetail(event) {
 // 초기 실행 함수
 function init() {
   readBooks(); // 도서 읽어오는 함수
-
   tbody.addEventListener('click', showBookDetail);
+
+  
 }
 
 init();
