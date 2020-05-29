@@ -19,6 +19,12 @@
   width: 100%;
 }
 
+#read-form > h1:first-child {
+  font-size: var(--font-large);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
 /* 필드 */
 #read-form #read-table thead #field th{
   padding: 10px;
