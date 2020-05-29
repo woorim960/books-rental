@@ -4,7 +4,9 @@ import User from '../model/User.js';
 'use strict';
 
 // HTML 오브젝트 변수 선언
-const header = document.querySelector('header'),
+const logo = document.querySelector('.logo'),
+  btnMoveBook = document.querySelector('header .btn-move-book'),
+  header = document.querySelector('header'),
   btnPrevious = document.querySelector('#previous-btn'),
   btnSignUp = document.querySelector('#signup-btn');
 
@@ -17,7 +19,12 @@ const id = document.querySelector('#id'),
 // 회원가입 가능 여부
 let isAvailable = true;
 
-// 도서 메인(조호) 화면 이동
+// 메인 화면으로 이동
+function showMain() {
+  location.href = '/';
+}
+
+// 도서 메인(조회) 화면 이동
 function showBookMain() {
   location.href = '/book';
 }
@@ -34,7 +41,7 @@ function signUp() {
   if (user.id.match(/^[a-z0-9_]{6,12}$/) === null) {
     alert('아이디가 양식(영숫자 6-12자)에 벗어났습니다.');
     printWarningMsg(id);
-  } else if (user.name.match(/^[a-zA-Z가-힣\s]{0,20}$/ ) === null) {
+  } else if (user.name.match(/^[a-zA-Z가-힣\s]{0,20}$/) === null) {
     alert('이름이 양식(한영 20자 이내)에 벗어났거나 올바른 표기법이 아닙니다.');
     printWarningMsg(name);
   } else if (user.email !== '' && user.email.match(/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/) === null) {
@@ -49,7 +56,7 @@ function signUp() {
     pwCheck.value = '';
     pwCheck.classList.add('placeholder');
     isAvailable = false;
-  } else 
+  } else
     isAvailable = true;
 
   // 회원가입이 가능하면 실행
@@ -63,7 +70,8 @@ function signUp() {
 
 // 초기 실행 함수
 function init() {
-  header.addEventListener('click', showBookMain);
+  logo.addEventListener('click', showMain);
+  btnMoveBook.addEventListener('click', showBookMain);
   btnPrevious.addEventListener('click', showSignIn);
   btnSignUp.addEventListener('click', signUp);
 }

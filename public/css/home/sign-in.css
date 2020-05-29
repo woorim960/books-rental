@@ -30,23 +30,30 @@ header {
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  padding: 15px 20px;
+  padding: 18px 26px;
+  font-size: var(--font-large);
+  font-weight: 700;
   background-color: var(--head-bgcolor);
 }
 
-header .logo logo:hover,
+header .logo:hover,
 header .btn-move-book:hover {
   cursor: pointer;
   color: var(--btn-hover-color);
   text-decoration-line: underline;
 }
 
-header logo,
-header h1 {
-  margin-bottom: 5px;
-  font-size: var(--font-large);
-  font-weight: 900;
-  
+header .logo,
+header .btn-move-book {
+  display: flex;
+  align-items: center;
+}
+
+header .logo i,
+header .btn-move-book i {
+  margin-right: 8px;
+  font-size: 40px;
+  color: var(--head-logo-i-color);
 }
 
 #signin-form {

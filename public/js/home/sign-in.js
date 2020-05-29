@@ -4,7 +4,7 @@ import User from '../model/User.js';
 'use strict';
 
 // HTML 오브젝트 변수 선언
-const logo = document.querySelector('.logo logo'),
+const logo = document.querySelector('.logo'),
   btnMoveBook = document.querySelector('header .btn-move-book'),
   btnSignIn = document.querySelector('#signin-btn'),
   btnSignUp = document.querySelector('#signup-btn');
@@ -14,7 +14,7 @@ function showMain() {
   location.href = '/';
 }
 
-// 도서 메인(조호) 화면 이동
+// 도서 메인(조회) 화면 이동
 function showBookMain() {
   location.href = '/book';
 }
@@ -28,6 +28,7 @@ function signIn() {
   user.id = id.value;
   user.pw = pw.value;
 
+  // 로그인 메서드 호출
   User.signIn(user);
 }
 
