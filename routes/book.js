@@ -12,8 +12,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/read', (req, res) => {
-  db.query(`SELECT * FROM books`, (err, books) => {
-    if (err) throw err;
+  db.query(`SELECT * FROM books`, (err1, books) => {
+    if (err1) throw err;
     res.json(books);
   });
 });
@@ -26,11 +26,20 @@ router.post('/create', (req, res) => {
   const bookData = req.body;
   db.query(`INSERT INTO 
     books(title, discription, author, price, is_rent) 
-    VALUES('${bookData.title}', '${bookData.discription}', '${bookData.author}', '${bookData.price}', 'N')`, 
+    VALUES('${bookData.title}', '${bookData.discription}', '${bookData.author}', '${bookData.price}', 'N')`,
     (err, result) => {
-    if (err) throw err;
-    res.json(true);
-  });
+
+      db.query(`ALTER TABLE books AUTO_INCREMENT = 1`, (err2, result1) => {
+        if (err2) throw err;
+        db.query(`SET @COUNT = 0`, (err3, result2) => {
+          if (err3) throw err;
+          db.query(`UPDATE books SET books.seq = @COUNT:=@COUNT+1`, (err4, result3) => {
+            if (err4) throw err;
+            res.json(true);
+          });
+        });
+      });
+    });
 })
 
 router.get('/:seq', (req, res) => {
@@ -50,12 +59,12 @@ router.get('/:seq/update', (req, res) => {
 router.post('/:seq/update', (req, res) => {
   const bookData = req.body;
   db.query(`UPDATE books 
-    SET title=?, discription=?, author=?, price=? WHERE seq=?`, 
-    [bookData.title, bookData.discription, bookData.author, bookData.price, bookData.seq], 
+    SET title=?, discription=?, author=?, price=? WHERE seq=?`,
+    [bookData.title, bookData.discription, bookData.author, bookData.price, bookData.seq],
     (err, book) => {
-    if (err) throw err;
-    res.json(true);
-  });
+      if (err) throw err;
+      res.json(true);
+    });
 });
 
 router.post('/:seq/delete', (req, res) => {

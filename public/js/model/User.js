@@ -43,7 +43,7 @@ export default class User {
     localStorage.setItem('is_manager', user.is_manager);
   }
 
-  // 현재 로그인 세션 정보 확인
+  // 현재 로그인 세션 정보 확인 함수
   static checkSession = (btnSignIn, btnSignOut, btnCreateBook) => {
     const currentUser = localStorage.getItem('current_user'),
       isManager = localStorage.getItem('is_manager');
@@ -69,8 +69,21 @@ export default class User {
     }
   }
 
-  static checkSessionOfDetail = (btnUpdate, btnDelete) => {
-    const isManager = localStorage.getItem('is_manager');
+  // 상세 페이지 세션 확인 함수
+  static checkSessionOfDetail = (btnUpdate, btnDelete, btnRental, btnReturn) => {
+    const currentUser = localStorage.getItem('current_user'),
+      isManager = localStorage.getItem('is_manager');
+
+    // 로그인 세션 정보
+    if (currentUser !== 'undefined') {
+      // 로그인 상태
+      btnRental.classList.remove('deactive'); // 대여 버튼 활성화
+      btnReturn.classList.remove('deactive'); // 대여 버튼 활성화
+    } else {
+      // 로그아웃 상태
+      btnRental.classList.add('deactive'); // 대여 버튼 비활성화
+      btnReturn.classList.add('deactive'); // 대여 버튼 비활성화
+    }
 
     // 관리자 세션 정보
     if (isManager === 'Y') {
