@@ -75,5 +75,41 @@ router.post('/:seq/delete', (req, res) => {
   });
 });
 
+router.post('/:seq/rental', (req, res) => {
+  const user = req.body,
+    book = req.params;
+
+  db.query(`SELECT renter_user_id FROM books WHERE renter_user_id=?`, 
+    [user.currentUser], (err, result) => {
+      if (result == false) {
+        db.query(`UPDATE books SET renter_user_id=? WHERE seq=?`, 
+        [user.currentUser, book.seq], (err, book) => {
+          if (err) throw err;
+          res.json(true);
+        });
+      } else {
+        res.json(false);        
+      }
+  });
+});
+
+router.post('/:seq/return', (req, res) => {
+  const user = req.body,
+    book = req.params;
+
+  db.query(`SELECT renter_user_id FROM books WHERE renter_user_id=?`, 
+    [user.currentUser], (err, result) => {
+      if (result != false && result[0].renter_user_id === user.currentUser) {
+        db.query(`UPDATE books SET renter_user_id=? WHERE seq=?`, 
+        ['', book.seq], (err, book) => {
+          if (err) throw err;
+          res.json(true);
+        });
+      } else {
+        res.json(false);
+      }
+  });
+});
+
 // 모듈 내보내기
 module.exports = router;

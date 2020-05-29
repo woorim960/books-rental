@@ -97,6 +97,17 @@ export default class User {
     }
   }
 
+  static getCurrentUser = () => {
+    const currentUser = localStorage.getItem('current_user'),
+      isManager = localStorage.getItem('is_manager');
+    
+    const user = {
+      currentUser : currentUser,
+      isManager : isManager
+    };
+    return user;
+  }
+
   // 로그인 함수(static으로 객체 인스턴스화하지 않고도 실행 가능하도록 구현하였음)
   static signIn = (user) => {
     fetch('/user/sign-in', {

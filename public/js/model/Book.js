@@ -96,20 +96,60 @@ export default class Book {
 
   // 도서 삭제 함수
   static delete = (seq) => {
-    const bookData = {};
-    bookData.seq = seq;
+    const book = {
+      seq : seq
+    };
     fetch(`/book/${seq}/delete`, {
       method : 'POST',
       headers : {
         'Content-Type' : 'application/json'
       },
-      body : JSON.stringify(bookData)
+      body : JSON.stringify(book)
     })
       .then(res => res.json())
       .then(json => {
         if (json) {
-          location.href = '/book';
-          alert('데이터가 삭제되었습니다.');
+          alert('삭제가 완료 되었습니다.');
+        }
+      })
+      .catch(err => alert(err));
+  }
+
+  // 도서 대여 함수
+  static rental = (user, seq) => {
+    fetch(`/book/${seq}/rental`, {
+      method : 'POST',
+      headers : {
+        'Content-Type' : 'application/json'
+      },
+      body : JSON.stringify(user)
+    })
+      .then(res => res.json())
+      .then(json => {
+        if (json) {
+          alert('대여가 완료 되었습니다.');
+        } else {
+          alert('이미 대여하셨습니다.')
+        }
+      })
+      .catch(err => alert(err));
+  }
+
+  // 도서 반납   함수
+  static return = (user, seq) => {
+    fetch(`/book/${seq}/return`, {
+      method : 'POST',
+      headers : {
+        'Content-Type' : 'application/json'
+      },
+      body : JSON.stringify(user)
+    })
+      .then(res => res.json())
+      .then(json => {
+        if (json) {
+          alert('반납이 완료 되었습니다.');
+        } else {
+          alert('대여는 하셨는지요?')
         }
       })
       .catch(err => alert(err));

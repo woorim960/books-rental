@@ -24,12 +24,12 @@ function showBookDelete() {
 
 // 도서 대여 함수
 function rentalBook() {
-  alert('서비스 준비 중입니다.');
+  Book.rental(User.getCurrentUser(), seq);
 }
 
 // 도서 반납 함수
 function returnBook() {
-   alert('서비스 준비 중입니다.');
+  Book.return(User.getCurrentUser(), seq);
 }
 
 // 초기 실행 함수
