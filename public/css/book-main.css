@@ -6,7 +6,7 @@
   flex-direction: column;
   position: relative;
   width: 85vw;
-  margin: 40px auto;
+  margin: 10px auto;
   padding: 20px;
   box-shadow: 2px 2px 7px 1px var(--form-shadow-color);
   border-radius: 8px;

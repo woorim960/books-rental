@@ -25,16 +25,16 @@ router.get('/create', (req, res) => {
 router.post('/create', (req, res) => {
   const bookData = req.body;
   db.query(`INSERT INTO 
-    books(title, discription, author, price, is_rent) 
-    VALUES('${bookData.title}', '${bookData.discription}', '${bookData.author}', '${bookData.price}', 'N')`,
+    books(title, discription, author, price) 
+    VALUES('${bookData.title}', '${bookData.discription}', '${bookData.author}', '${bookData.price}')`,
     (err, result) => {
-
+      if (err) throw err;
       db.query(`ALTER TABLE books AUTO_INCREMENT = 1`, (err2, result1) => {
-        if (err2) throw err;
+        if (err2) throw err2;
         db.query(`SET @COUNT = 0`, (err3, result2) => {
-          if (err3) throw err;
+          if (err3) throw err3;
           db.query(`UPDATE books SET books.seq = @COUNT:=@COUNT+1`, (err4, result3) => {
-            if (err4) throw err;
+            if (err4) throw err4;
             res.json(true);
           });
         });

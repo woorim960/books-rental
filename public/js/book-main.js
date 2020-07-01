@@ -26,8 +26,6 @@ function showBookDetail(event) {
 function init() {
   readBooks(); // 도서 읽어오는 함수
   tbody.addEventListener('click', showBookDetail);
-
-  
 }
 
 init();

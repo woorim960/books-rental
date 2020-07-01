@@ -109,6 +109,7 @@ export default class Book {
       .then(res => res.json())
       .then(json => {
         if (json) {
+          location.href = '/book';
           alert('삭제가 완료 되었습니다.');
         }
       })

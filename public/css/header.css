@@ -16,11 +16,24 @@
     --fonr-medium: 18px;
   
     --form-shadow-color: rgb(252, 212, 190);
-  }
+
+    --tab-menu-color: rgb(252, 159, 110);
+}
 
 body {
     color: var(--font-main-color);
     background-color: var(--bg-main-color);
+}
+
+button {
+    background:none;
+    border:0;
+    outline:0;
+    cursor:pointer;
+}
+
+.deactive {
+    display: none;
 }
 
 header {
@@ -68,6 +81,48 @@ header #status-list #book-create:hover {
     text-decoration-line: underline;
 }
 
-.deactive {
+.tab-wrap {
+    margin: 14px 0 0 7vw;
+}
+
+.menu-container {
+    display: flex;
+}
+
+.menu-btn {
+    width: 80px;
+    height: 40px;
+    border-bottom: 2px solid;
+    margin-bottom: 4px;
+}
+
+.menu-btn.on {
+    border-bottom: 2px solid var(--tab-menu-color);
+    font-weight: 700;
+    color: var(--tab-menu-color);
+}
+
+.menu-btn:hover {
+    font-weight: 700;
+    color: var(--tab-menu-color);
+}
+
+.box-container {
     display: none;
+    padding: 20px;
+}
+
+.box-container.on {
+    display: flex;
+    flex-direction: column;
+}
+
+.box {
+    width: 60px;
+    margin-bottom: 4px;
+}
+
+.box:hover {
+    font-weight: 700;
+    cursor: pointer;
 }

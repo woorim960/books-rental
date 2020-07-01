@@ -44,7 +44,7 @@ export default class User {
   }
 
   // 현재 로그인 세션 정보 확인 함수
-  static checkSession = (btnSignIn, btnSignOut, btnCreateBook) => {
+  static checkSession = (btnSignIn, btnSignOut, boxContainer) => {
     const currentUser = localStorage.getItem('current_user'),
       isManager = localStorage.getItem('is_manager');
   
@@ -62,10 +62,10 @@ export default class User {
     // 관리자 세션 정보
     if (isManager === 'Y') {
       // 관리자
-      btnCreateBook.classList.remove('deactive'); // 도서 추가 버튼 활성화
+      boxContainer.classList.remove('deactive'); // 탭메뉴 활성화
     } else {
       // 회원
-      btnCreateBook.classList.add('deactive'); // 도서 추가 버튼 비활성화
+      boxContainer.classList.add('deactive'); // 탭메뉴 활성화
     }
   }
 
@@ -78,22 +78,24 @@ export default class User {
     if (currentUser !== 'undefined') {
       // 로그인 상태
       btnRental.classList.remove('deactive'); // 대여 버튼 활성화
-      btnReturn.classList.remove('deactive'); // 대여 버튼 활성화
+      btnReturn.classList.remove('deactive'); // 반납 버튼 활성화
     } else {
       // 로그아웃 상태
       btnRental.classList.add('deactive'); // 대여 버튼 비활성화
-      btnReturn.classList.add('deactive'); // 대여 버튼 비활성화
+      btnReturn.classList.add('deactive'); // 반납 버튼 비활성화
     }
 
     // 관리자 세션 정보
     if (isManager === 'Y') {
       // 관리자
       btnUpdate.classList.remove('deactive'); // 도서 추가 버튼 활성화
-      btnDelete.classList.remove('deactive'); // 도서 추가 버튼 활성화
+      btnDelete.classList.remove('deactive'); // 도서 삭제 버튼 활성화
+      btnRental.classList.add('deactive'); // 대여 버튼 비활성화
+      btnReturn.classList.add('deactive'); // 반납 버튼 비활성화
     } else {
       // 회원
       btnUpdate.classList.add('deactive'); // 도서 추가 버튼 비활성화
-      btnDelete.classList.add('deactive'); // 도서 추가 버튼 활성화
+      btnDelete.classList.add('deactive'); // 도서 삭제 버튼 비활성화
     }
   }
 

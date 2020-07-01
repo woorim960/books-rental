@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', require('./routes/home'));
 app.use('/book', require('./routes/book'));
 app.use('/user', require('./routes/user'));
+app.use('/rental', require('./routes/rental'));
 
 // 서버 온
 app.listen(PORT, () => console.log(`서버가 ${PORT} 포트에서 정상 가동되었습니다.`));
