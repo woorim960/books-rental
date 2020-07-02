@@ -1,4 +1,4 @@
-<!-- views/book/book-main.ejs -->
+<!-- views/user/management.ejs -->
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -19,7 +19,27 @@
     <!-- 헤더 로드 -->
     <%- include('../templates/b-header') %>
 
-    <h1>업데이트 중입니다...</h1>
+    <!-- 도서 테이블 -->
+    <section id="read-form">
+        <table id="read-table">
+            <thead>
+                <tr id=field>
+                    <th>아이디</th>
+                    <th>이름</th>
+                    <th>이메일</th>
+                    <th>관리자 여부</th>
+                </tr>
+            </thead>
+
+            <tbody></tbody>
+        </table>
+
+        <article id="btns">
+            <button id="create-btn">관리자 등록</button>
+            <button id="update-btn">수정</button>
+            <button id="delete-btn">삭제</button>
+          </article>
+    </section>
     
 </body>
 

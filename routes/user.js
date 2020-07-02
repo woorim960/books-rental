@@ -51,4 +51,17 @@ router.get('/management', (req, res) => {
   res.render('user/management');
 });
 
+// 회원 데이터 읽어오기 (조회)
+router.get('/read', (req, res) => {
+  db.query(`SELECT * FROM users`, (err1, users) => {
+    if (err1) throw err;
+    res.json(users);
+  });
+});
+
+// 회원 등록 페이지 이동
+router.get('/create', (req, res) => {
+  res.render('user/create');
+});
+
 module.exports = router;

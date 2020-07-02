@@ -154,4 +154,85 @@ export default class User {
       })
       .catch(err => alert(err));
   }
+
+  // 유저 조회 함수(stric으로 객체 인스턴스화하지 않고도 실행 가능하도록 구현하였음)
+  static read = () => {
+    return fetch('/user/read')
+      .then(res => res.json())
+      .then(users => {
+        let tr = '';
+        for (let i = 0; i < users.length; i++) {
+          tr += `<tr>
+            <td>${users[i].id}</td>
+            <td>${users[i].name}</td>
+            <td>${users[i].email}</td>
+            <td>${users[i].is_manager}</td>
+          `;
+          tr += '</tr>'
+        }
+        return tr;
+      })
+      .catch(err => alert(err));
+  }
+
+  // 유저 추가 함수
+  create = (user) => {
+    fetch('/book/create', {
+      method : 'POST',
+      headers : {
+        'Content-Type' : 'application/json'
+      },
+      body : JSON.stringify(user)
+    })
+      .then(res => res.json())
+      .then(json => {
+        if (json) {
+          location.href = '/user/management';
+          alert('유저가 등록되었습니다.');
+        }
+      })
+      .catch(err => alert(err));
+  }
+
+  // 유저 수정 함수
+  update = (bookData, seq) => {
+    bookData.seq = seq;
+    fetch(`/book/${seq}/update`, {
+      method : 'POST',
+      headers : {
+        'Content-Type' : 'application/json'
+      },
+      body : JSON.stringify(bookData)
+    })
+      .then(res => res.json())
+      .then(json => {
+        if (json) {
+          location.href = `/book/${seq}`
+          alert('데이터가 수정되었습니다.');
+        }
+      })
+      .catch(err => alert(err));
+  }
+
+  // 유저 삭제 함수
+  static delete = (seq) => {
+    const book = {
+      seq : seq
+    };
+    fetch(`/book/${seq}/delete`, {
+      method : 'POST',
+      headers : {
+        'Content-Type' : 'application/json'
+      },
+      body : JSON.stringify(book)
+    })
+      .then(res => res.json())
+      .then(json => {
+        if (json) {
+          location.href = '/book';
+          alert('삭제가 완료 되었습니다.');
+        }
+      })
+      .catch(err => alert(err));
+  }
 }

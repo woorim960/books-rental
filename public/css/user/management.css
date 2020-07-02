@@ -1,0 +1,85 @@
+/* public/css/user/management.css */
+
+/* 테이블 전체 폼 */
+#read-form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 85vw;
+  margin: 10px auto;
+  padding: 20px;
+  box-shadow: 2px 2px 7px 1px var(--form-shadow-color);
+  border-radius: 8px;
+  border-collapse: collapse;
+}
+
+/* 테이블 */
+#read-form #read-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+#read-form > h1:first-child {
+  font-size: var(--font-large);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* 필드 */
+#read-form #read-table thead #field th{
+  padding: 10px;
+  font-size: var(--fonr-medium);
+  font-weight: 700;
+  border: 1px solid var(--head-logo-i-color);
+  white-space: nowrap; 
+}
+
+/* 레코드 */
+#read-form #read-table tbody tr:hover {
+  cursor: pointer;
+  color: gray;
+}
+
+#read-form #read-table tbody tr:active {
+  transform: scale(0.99);
+}
+
+#read-form #read-table tbody td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid var(--head-logo-i-color);
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}
+
+tr.on {
+  font-weight: 700;
+  font-size: var(--fonr-medium);
+}
+
+/* 폼 버튼 */
+#btns {
+  display: flex;
+  justify-content: center;
+}
+
+#btns button {
+  width: 100px;
+  margin: 10px 10px;
+  padding: 10px 5px;
+  font-size: var(--fonr-medium);
+  outline: none;
+  border: 1px solid var(--font-main-color);
+  border-radius: 4px;
+  background-color: var(--bg-main-color);
+}
+
+#btns button:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
+#btns button:active {
+  transform: scale(1.00);
+}
