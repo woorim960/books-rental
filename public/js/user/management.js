@@ -41,16 +41,29 @@ function processClickedCells(event) {
   }
 }
 
+// 회원 등록 페이지 이동
 function createUser() {
-  location.href = '/user/create'
+  location.href = '/user/create';
 }
 
+// 회원 수정 페이지 이동
 function updateUser() {
-
+  if (clickedCells.length === 1) {
+    location.href = `/user/${clickedCells[0]}/update`;
+  } else {
+    alert('수정할 회원을 하나만 선택해주세요.');
+  }
 }
 
 function deleteUser() {
-
+  if (clickedCells.length === 1) {
+    const user = {
+      id : clickedCells[0]
+    }
+    User.delete(user);
+  } else {
+    alert('삭제할 회원을 하나만 선택해주세요.');
+  }
 }
 
 // 초기 실행 함수

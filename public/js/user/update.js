@@ -1,29 +1,34 @@
-// public/js/user/create.js
+// public/js/user/update.js
 
+// Book 클래스 불러오기
 import User from '../model/User.js';
 'use strict';
 
 // HTML 오브젝트 변수 선언
-const btnPrevious = document.querySelector('#previous-btn'),
-  btnSignUp = document.querySelector('#signup-btn');
+const btnUpdate = document.querySelector('#btns #update-btn'),
+  id = document.querySelector('#signin-form #signin-input #id'),
+  name = document.querySelector('#signin-form #signin-input #name'),
+  email = document.querySelector('#signin-form #signin-input #email'),
+  pw = document.querySelector('#signin-form #signin-input #pw'),
+  pwCheck = document.querySelector('#signin-form #signin-input #pw-check'),
+  isManager = document.querySelector('#signin-form #signin-input #is-manager');
 
-const id = document.querySelector('#id'),
-  name = document.querySelector('#name'),
-  email = document.querySelector('#email'),
-  pw = document.querySelector('#pw'),
-  pwCheck = document.querySelector('#pw-check');
+// 본래 아이디 불러오기
+const originId = document.querySelector('hidden').attributes.value.value;
 
 // 회원가입 가능 여부
 let isAvailable = true;
 
-// 로그인 화면 이동
-function showPrevious() {
-  location.href = '/user/management';
-}
-
-// 회원가입
-function create() {
-  const user = new User(id.value, name.value, email.value, pw.value, pwCheck.value);
+// 회원 수정 함수
+function updateUser(event) {
+  const user = {
+    id : id.value,
+    name : name.value,
+    email : email.value,
+    pw : pw.value,
+    pwCheck : pwCheck.value,
+    isManager : isManager.value
+  }
 
   if (user.id.match(/^[a-z0-9_]{6,12}$/) === null) {
     alert('아이디가 양식(영숫자 6-12자)에 벗어났습니다.');
@@ -48,17 +53,13 @@ function create() {
 
   // 회원가입이 가능하면 실행
   if (isAvailable) {
-    const isSuccess = user.create(user.getObject());
-    isSuccess.then(result => {
-      if (result) printWarningMsg(id);
-    });
+    User.update(user, originId);
   }
 }
 
 // 초기 실행 함수
 function init() {
-  btnPrevious.addEventListener('click', showPrevious);
-  btnSignUp.addEventListener('click', create);
+  btnUpdate.addEventListener('click', updateUser);
 }
 
 init();

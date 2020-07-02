@@ -177,7 +177,7 @@ export default class User {
 
   // 유저 추가 함수
   create = (user) => {
-    fetch('/book/create', {
+    fetch('/user/create', {
       method : 'POST',
       headers : {
         'Content-Type' : 'application/json'
@@ -188,49 +188,48 @@ export default class User {
       .then(json => {
         if (json) {
           location.href = '/user/management';
-          alert('유저가 등록되었습니다.');
+          alert('관리자 등록이 완료 되었습니다.');
+          return true;
+        } else {
+          alert('이미 존재하는 아이디입니다.');
+          return false;
         }
       })
       .catch(err => alert(err));
   }
 
   // 유저 수정 함수
-  update = (bookData, seq) => {
-    bookData.seq = seq;
-    fetch(`/book/${seq}/update`, {
+  static update = (user, originId) => {
+    fetch(`/user/${originId}/update`, {
       method : 'POST',
       headers : {
         'Content-Type' : 'application/json'
       },
-      body : JSON.stringify(bookData)
+      body : JSON.stringify(user)
     })
       .then(res => res.json())
       .then(json => {
         if (json) {
-          location.href = `/book/${seq}`
-          alert('데이터가 수정되었습니다.');
+          location.href = `/user/management`
+          alert('회원 정보가 수정되었습니다.');
         }
       })
       .catch(err => alert(err));
   }
 
   // 유저 삭제 함수
-  static delete = (seq) => {
-    const book = {
-      seq : seq
-    };
-    fetch(`/book/${seq}/delete`, {
+  static delete = (user) => {
+    fetch(`/user/${user.id}/delete`, {
       method : 'POST',
       headers : {
         'Content-Type' : 'application/json'
-      },
-      body : JSON.stringify(book)
+      }
     })
       .then(res => res.json())
       .then(json => {
         if (json) {
-          location.href = '/book';
-          alert('삭제가 완료 되었습니다.');
+          location.href = '/user/management';
+          alert('회원 삭제가 완료 되었습니다.');
         }
       })
       .catch(err => alert(err));

@@ -59,9 +59,53 @@ router.get('/read', (req, res) => {
   });
 });
 
-// 회원 등록 페이지 이동
+// 회원(관리자) 등록 페이지 이동
 router.get('/create', (req, res) => {
   res.render('user/create');
+});
+
+// 회원(관리자) 등록
+router.post('/create', (req, res) => {
+  const user = req.body;
+  db.query(`INSERT INTO 
+      users(id, name, email, pw, is_manager) 
+      VALUES('${user.id}', '${user.name}', '${user.email}', '${user.pw}', 'Y')`,
+    (err, result) => {
+      if (err) throw err;
+      res.json(true);
+  });
+});
+
+// 회원(관리자) 등록 페이지 이동
+router.get('/:id/update', (req, res) => {
+  const id = req.params.id;
+  db.query(`SELECT * FROM users WHERE id = ?`, [id], (err, user) => {
+    res.render('user/update', user[0]);
+  });
+});
+
+// 회원 수정
+router.post('/:id/update', (req, res) => {
+  const user = req.body,
+    originId = req.params.id;
+    console.log(originId)
+  db.query(`UPDATE users 
+    SET id=?, name=?, email=?, pw=?, is_manager=? WHERE id=?`,
+    [user.id, user.name, user.email, user.pw, user.isManager, originId],
+    (err, user) => {
+      if (err) throw err;
+      res.json(true);
+    });
+});
+
+// 회원 삭제
+router.post('/:id/delete', (req, res) => {
+  const id = req.params.id;
+  console.log(id)
+  db.query(`DELETE FROM users WHERE id=?`, [id], (err, user) => {
+    if (err) throw err;
+    res.json(true);
+  });
 });
 
 module.exports = router;

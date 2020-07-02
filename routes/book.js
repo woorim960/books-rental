@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
   res.render('book/book-main');
 });
 
+// 도서 조회
 router.get('/read', (req, res) => {
   db.query(`SELECT * FROM books`, (err1, books) => {
     if (err1) throw err;
@@ -18,10 +19,12 @@ router.get('/read', (req, res) => {
   });
 });
 
+// 도서 등록 페이지 이동
 router.get('/create', (req, res) => {
   res.render('book/create');
 });
 
+// 도서 등록(생성)
 router.post('/create', (req, res) => {
   const bookData = req.body;
   db.query(`INSERT INTO 
@@ -40,8 +43,9 @@ router.post('/create', (req, res) => {
         });
       });
     });
-})
+});
 
+// 도서 상세 페이지 이동
 router.get('/:seq', (req, res) => {
   const seq = req.params.seq;
   db.query(`SELECT * FROM books WHERE seq = ?`, [seq], (err, book) => {
@@ -49,6 +53,7 @@ router.get('/:seq', (req, res) => {
   });
 });
 
+// 도서 수정 페이지 이동
 router.get('/:seq/update', (req, res) => {
   const seq = req.params.seq;
   db.query(`SELECT * FROM books WHERE seq = ?`, [seq], (err, book) => {
@@ -56,6 +61,7 @@ router.get('/:seq/update', (req, res) => {
   });
 });
 
+// 도서 수정
 router.post('/:seq/update', (req, res) => {
   const bookData = req.body;
   db.query(`UPDATE books 
@@ -67,6 +73,7 @@ router.post('/:seq/update', (req, res) => {
     });
 });
 
+// 도서 삭제
 router.post('/:seq/delete', (req, res) => {
   const bookData = req.body;
   db.query(`DELETE FROM books WHERE seq=?`, [bookData.seq], (err, book) => {
@@ -75,6 +82,7 @@ router.post('/:seq/delete', (req, res) => {
   });
 });
 
+// 도서 대여
 router.post('/:seq/rental', (req, res) => {
   const user = req.body,
     book = req.params;
@@ -93,6 +101,7 @@ router.post('/:seq/rental', (req, res) => {
   });
 });
 
+// 도서 반납
 router.post('/:seq/return', (req, res) => {
   const user = req.body,
     book = req.params;
